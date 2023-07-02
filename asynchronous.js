@@ -1,3 +1,4 @@
+//this file has callbacks,promises,async,await,fetch
 //js is a synchronous language---->executes program one by one(that is line by line)
 //it executes our code in one particular order
 
@@ -31,6 +32,45 @@ console.log("Anshika");
 //pyramid of doom: the pyramid of doom is a common problem that arises when a program uses many levels of nested indentation to control access to a function
 //to avoid the promise of doom promises came into picture
 //(see code from maam's github)
+// function doStep1(init) {
+//   return init + 1;
+// }
+// function doStep2(init) {
+//   return init + 2;
+// }
+// function doStep3(init) {
+//   return init + 3;
+// }
+// function doOperation() {    // synchronous code
+//   let result = 0;
+//   result = doStep1(result);
+//   result = doStep2(result);
+//   result = doStep3(result);
+//   console.log(`result: ${result}`);
+// }
+// doOperation();
+function doStep1(init, callback) {
+    const result = init + 1;
+    callback(result);
+  }  
+  function doStep2(init, callback) {
+    const result = init + 2;
+    callback(result);
+  }  
+  function doStep3(init, callback) {
+    const result = init + 3;
+    callback(result);
+  }  
+  function doOperation() {
+    doStep1(0, (result1) => {
+      doStep2(result1, (result2) => {
+        doStep3(result2, (result3) => {
+          console.log(`result: ${result3}`);
+        });
+      });
+    });
+  }
+  doOperation();
 
 
 //promises
@@ -42,26 +82,59 @@ console.log("Anshika");
 //response.json() is very important command as response is not in the json form and to convert it into json form we need to write this statement
 //json method always returns a promise
 //fetch returns a promise automatically but we can also create our own promises
-let success=true;
-const promiseObject= new Promise(function(onFulfilled,onRejected)//onfulfilled if promise is successful and rejected if it is not successful
-{
-    if(success)
-    {
-        onFulfilled("Javascript Promise")
-    }
-    else{
-        onRejected("Error in Promise")
-    }
+let success = true;
+const promiseObject = new Promise(function (onFulFilled, onRejected) {
+  if (success) {
+    onFulFilled("Javascript Promise");
+  } else {
+    onRejected("Error in Promise");
+  }
 });
-
 promiseObject
-.then((res)=>console.log("Response: ",res))
-.catch((err)=>console.log("Error",err));
+  .then((res) => console.log("Response", res))
+  .catch((err) => console.log("Error", err));
+//console.log("Promise Object", promiseObject);
+
 //the above statements are like below in shorthand form
 //promiseObject.then((res)=>console.log("Response: ",res))
 // promiseObject.catch((err)=>console.log("Error",err))
 // console.log("Promise Object",promiseObject)
 //when you create your own promise resolve(promise)---> always resolve your promise
+
+//promsies through fetch command
+// const res = fetch("https://dummyjson.com/products");
+// console.log("res", res);
+// res.then(data => data.json());
+// res.catch(err => console.log(err));
+// const fetchPromise = fetch(
+//   "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+// );
+// console.log(fetchPromise);
+// fetchPromise.then((response) => {
+//   console.log(`Received response: ${response.status}`);
+// });
+console.log("Started request…");
+const fetchPromise = fetch(
+  "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+);
+fetchPromise.then((response) => {
+  const jsonPromise = response.json();
+
+  console.log("jsonPromise", jsonPromise);
+
+  jsonPromise.then((data) => {
+    console.log("data", data);
+    console.log(data[1].name);
+  });
+});
+// const fetchPromise = fetch(
+//     "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+//   );
+//   fetchPromise
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data[0].name);
+//     });
 
 
 //async,await
@@ -74,6 +147,6 @@ promiseObject
 //both promises and async,await are same but async and await make the code readable
 //always put await and async on functions that return a promise
 //await will be used to call a function that is returning a promise
-//
+
 
 

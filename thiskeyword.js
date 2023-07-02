@@ -1,4 +1,8 @@
 // this keyword in js
+//binding
+//borrowing
+
+
 //window object points to global object while this keyword points to current object 
 //object 1
 let user={

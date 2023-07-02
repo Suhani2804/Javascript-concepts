@@ -1,6 +1,6 @@
 //CRUD
 //to perform these operations we use http methods
-//
+
 
 // THERE ARE FOUR HTTP METHODS(WRITTEN ON RIGHT SIDE OF THE ARROWS )
 //create---------> POST

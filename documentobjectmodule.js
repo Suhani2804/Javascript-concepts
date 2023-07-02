@@ -1,3 +1,5 @@
+//contains theory of DOM
+
 //ways of selecting an element using js by maniuplation of DOM
 //DOM(Document object module)
 

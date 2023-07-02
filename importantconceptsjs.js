@@ -1,11 +1,13 @@
 //javascript output questions along with explanation and little theory
+//shadowing conecept
+//hoisting
+//function expression and function declaration
 
 //datatypes----->var,let,const
 //var----->globalscope
 //let and const---->block scope----->values devlared using these are not declared in global scope
 //let is a stricter version of var. const is even a stricter version of var and let.
 //difference between let and const: let allows us to reassign values whereas const does not allow re assignment of values 
-
 
 ////hoisting: able to allocate memory to elemnts even before assigning value
 //(HOISTING IS VERY IMPORTANT FOR INTERVIEWS)

@@ -1,3 +1,5 @@
+//this file contains code of chaining in javascript
+
 const users = [
     {
       firstName: "Anshika",
