@@ -7,7 +7,7 @@ function callback(number)
     return number**2;
 }
 
-Array.prototype.myMap=function(callback){
-    let temparr=[];
-    for(let i=0)
-};
+// Array.prototype.myMap=function(callback){
+//     let temparr=[];
+//     for(let i=0)
+// };
